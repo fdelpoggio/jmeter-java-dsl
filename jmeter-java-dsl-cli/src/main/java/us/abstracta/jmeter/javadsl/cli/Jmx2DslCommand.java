@@ -11,6 +11,7 @@ import us.abstracta.jmeter.javadsl.elasticsearch.listener.ElasticsearchBackendLi
 import us.abstracta.jmeter.javadsl.graphql.DslGraphqlSampler;
 import us.abstracta.jmeter.javadsl.jdbc.JdbcJmeterDsl;
 import us.abstracta.jmeter.javadsl.parallel.ParallelController;
+import us.abstracta.jmeter.javadsl.tcp.TcpJmeterDsl;
 import us.abstracta.jmeter.javadsl.websocket.WebsocketJMeterDsl;
 import us.abstracta.jmeter.javadsl.wrapper.WrapperJmeterDsl;
 
@@ -50,6 +51,7 @@ public class Jmx2DslCommand implements Callable<Integer> {
         codeGenerator);
     addBuildersFrom(DatadogBackendListener.class, "jmeter-java-dsl-datadog", codeGenerator);
     addBuildersFrom(WebsocketJMeterDsl.class, "jmeter-java-dsl-websocket", codeGenerator);
+    addBuildersFrom(TcpJmeterDsl.class, "jmeter-java-dsl-tcp", codeGenerator);
     System.out.println(codeGenerator.generateCodeFromJmx(jmxFile));
     return 0;
   }
